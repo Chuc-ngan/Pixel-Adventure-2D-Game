@@ -17,7 +17,7 @@ public class UI_SkillToolTip : UI_ToolTip
 
         skillName.text = _skillName;
         skillText.text = _skillDescprtion;
-        skillCost.text = "Cost: " + _price;
+        skillCost.text = "Giá: " + _price;
 
         AdjustPosition();
 
