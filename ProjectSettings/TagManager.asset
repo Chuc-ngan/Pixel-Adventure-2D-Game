@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StatValue
   - StatName
+  - Chain
   layers:
   - Default
   - TransparentFX
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 4101806473
+    locked: 0
+  - name: Flatform
+    uniqueID: 873945771
     locked: 0
   - name: Checkpoint
     uniqueID: 1082012881
