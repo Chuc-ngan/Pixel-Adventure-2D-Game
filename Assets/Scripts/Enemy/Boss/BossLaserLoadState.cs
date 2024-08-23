@@ -5,7 +5,7 @@ namespace Assets.Scripts.Enemy.Boss
     public class BossLaserLoadState : EnemyState
     {
         private BossCharacter boss;
-        private float cooldown = 1.5f;
+        private float cooldown = 1f;
         private Transform player;
 
         public BossLaserLoadState(EnemyCharacter _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName) : base(_enemyBase, _stateMachine, _animBoolName)

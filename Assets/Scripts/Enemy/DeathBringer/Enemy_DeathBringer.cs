@@ -82,6 +82,8 @@ public class Enemy_DeathBringer : EnemyCharacter
 
     public void FindPosition()
     {
+        if (arena == null) return;
+
         float x = Random.Range(arena.bounds.min.x + 3, arena.bounds.max.x - 3);
         float y = Random.Range(arena.bounds.min.y + 3, arena.bounds.max.y - 3);
 

@@ -8,11 +8,17 @@ namespace Assets.Scripts.Enemy.Boss.SkillControllers
         private bool isBeam;
         private Player player;
         private Rigidbody2D rb;
+        private float timer;
+
+        private void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
 
         private void Start()
         {
             player = PlayerManager.instance.player;
-            rb = GetComponent<Rigidbody2D>();
+
         }
 
         public void LaserLoad()
@@ -51,14 +57,18 @@ namespace Assets.Scripts.Enemy.Boss.SkillControllers
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if ((collision.gameObject.layer == LayerMask.NameToLayer("Player")
-               || collision.gameObject.layer == LayerMask.NameToLayer("Ground")))
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-                {
-                    player.stats.TakeDamage(100);
-                    Destroy(gameObject, .5f);
-                }
+                rb.velocity = Vector2.zero;
+                rb.gravityScale = 0;
+                Destroy(gameObject, .5f);
+            }
+
+            if ((collision.gameObject.layer == LayerMask.NameToLayer("Player")))
+            {
+                player.stats.TakeDamage(100);
+                Destroy(gameObject, .5f);
+
             }
         }
     }

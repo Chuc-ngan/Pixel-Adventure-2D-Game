@@ -3,7 +3,7 @@
     public class BossLaserBeamState : EnemyState
     {
         private BossCharacter boss;
-        private float cooldown = 2.5f;
+        private float cooldown = 1f;
         private int count;
         private bool created;
 
