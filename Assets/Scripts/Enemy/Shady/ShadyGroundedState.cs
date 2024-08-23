@@ -6,7 +6,7 @@ public class ShadyGroundedState : EnemyState
 
     protected Transform player;
     protected Enemy_Shady enemy;
-    public ShadyGroundedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shady _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public ShadyGroundedState(EnemyCharacter _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shady _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         enemy = _enemy;
     }

@@ -42,9 +42,9 @@ public class PlayerCounterAttackState : PlayerState
             }
 
 
-            if (hit.GetComponent<Enemy>() != null)
+            if (hit.GetComponent<EnemyCharacter>() != null)
             {
-                if (hit.GetComponent<Enemy>().CanBeStunned())
+                if (hit.GetComponent<EnemyCharacter>().CanBeStunned())
                     {
                         SuccesfulCounterAttack();
 

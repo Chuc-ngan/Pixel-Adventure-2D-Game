@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-public class Enemy_Shady : Enemy
+public class Enemy_Shady : EnemyCharacter
 {
 
     [Header("Shady spesifics")]

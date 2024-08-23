@@ -152,8 +152,8 @@ public class Sword_Skill_Controller : MonoBehaviour
 
                     foreach (var hit in colliders)
                     {
-                        if (hit.GetComponent<Enemy>() != null)
-                            SwordSkillDamage(hit.GetComponent<Enemy>());
+                        if (hit.GetComponent<EnemyCharacter>() != null)
+                            SwordSkillDamage(hit.GetComponent<EnemyCharacter>());
                     }
                 }
             }
@@ -176,7 +176,7 @@ public class Sword_Skill_Controller : MonoBehaviour
             if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
             {
 
-                SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy>());
+                SwordSkillDamage(enemyTarget[targetIndex].GetComponent<EnemyCharacter>());
 
                 targetIndex++;
                 bounceAmount--;
@@ -199,9 +199,9 @@ public class Sword_Skill_Controller : MonoBehaviour
             return;
 
 
-        if (collision.GetComponent<Enemy>() != null)
+        if (collision.GetComponent<EnemyCharacter>() != null)
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
+            EnemyCharacter enemy = collision.GetComponent<EnemyCharacter>();
             SwordSkillDamage(enemy);
         }
 
@@ -211,7 +211,7 @@ public class Sword_Skill_Controller : MonoBehaviour
         StuckInto(collision);
     }
 
-    private void SwordSkillDamage(Enemy enemy)
+    private void SwordSkillDamage(EnemyCharacter enemy)
     {
         EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
 
@@ -233,7 +233,7 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private void SetupTargetsForBounce(Collider2D collision)
     {
-        if (collision.GetComponent<Enemy>() != null)
+        if (collision.GetComponent<EnemyCharacter>() != null)
         {
             if (isBouncing && enemyTarget.Count <= 0)
             {
@@ -241,7 +241,7 @@ public class Sword_Skill_Controller : MonoBehaviour
 
                 foreach (var hit in colliders)
                 {
-                    if (hit.GetComponent<Enemy>() != null)
+                    if (hit.GetComponent<EnemyCharacter>() != null)
                         enemyTarget.Add(hit.transform);
                 }
             }
@@ -255,7 +255,7 @@ public class Sword_Skill_Controller : MonoBehaviour
         if (collision.GetComponent<CharacterStats>()?.isInvincible == true)
             return;
 
-        if (pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
+        if (pierceAmount > 0 && collision.GetComponent<EnemyCharacter>() != null)
         {
             pierceAmount--;
             return;

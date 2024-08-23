@@ -4,7 +4,7 @@
 public class ShadyStunnedState : EnemyState
 {
     private Enemy_Shady enemy;
-    public ShadyStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shady _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public ShadyStunnedState(EnemyCharacter _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shady _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         this.enemy = _enemy;
     }

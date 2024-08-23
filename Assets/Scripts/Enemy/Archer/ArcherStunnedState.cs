@@ -6,7 +6,7 @@ public class ArcherStunnedState : EnemyState
 {
     private Enemy_Archer enemy;
 
-    public ArcherStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Archer _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public ArcherStunnedState(EnemyCharacter _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Archer _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         this.enemy = _enemy;
     }

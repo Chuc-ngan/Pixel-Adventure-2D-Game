@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PlayerAirState : PlayerState
 {
     public PlayerAirState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
@@ -22,14 +18,16 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
-
         if (player.IsWallDetected())
             stateMachine.ChangeState(player.wallSlide);
-
-        if(player.IsGroundDetected())
+        else if (player.IsGroundDetected())
             stateMachine.ChangeState(player.idleState);
 
-        if (xInput != 0) 
-            player.SetVelocity(player.moveSpeed * .8f * xInput, rb.velocity.y);
+        float xVelocity = xInput * player.moveSpeed * .8f;
+
+        if (rb.velocity.y != 0 && xInput == 0)
+            xVelocity = player.facingDir * player.moveSpeed * .8f;
+
+        player.SetVelocity(xVelocity, rb.velocity.y);
     }
 }

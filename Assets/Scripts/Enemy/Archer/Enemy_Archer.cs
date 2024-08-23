@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Archer : Enemy
+public class Enemy_Archer : EnemyCharacter
 {
 
     [Header("Archer spisifc info")]

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum SlimeType { big,medium,small}
 
-public class Enemy_Slime : Enemy
+public class Enemy_Slime : EnemyCharacter
 {
     [Header("Slime spesific")]
     [SerializeField] private SlimeType slimeType;

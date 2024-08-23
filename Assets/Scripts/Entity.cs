@@ -8,15 +8,15 @@ public class Entity : MonoBehaviour
     #region Components
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
-    
+
     public SpriteRenderer sr { get; private set; }
     public CharacterStats stats { get; private set; }
-    public CapsuleCollider2D cd {  get; private set; }
+    public CapsuleCollider2D cd { get; private set; }
     #endregion
 
     [Header("Knockback info")]
-    [SerializeField] protected Vector2 knockbackPower = new Vector2(7,12);
-    [SerializeField] protected Vector2 knockbackOffset = new Vector2(.5f,2);
+    [SerializeField] protected Vector2 knockbackPower = new Vector2(7, 12);
+    [SerializeField] protected Vector2 knockbackOffset = new Vector2(.5f, 2);
     [SerializeField] protected float knockbackDuration = .07f;
     protected bool isKnocked;
 
@@ -45,7 +45,7 @@ public class Entity : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        
+
         stats = GetComponent<CharacterStats>();
         cd = GetComponent<CapsuleCollider2D>();
     }
@@ -57,7 +57,7 @@ public class Entity : MonoBehaviour
 
     public virtual void SlowEntityBy(float _slowPercentage, float _slowDuration)
     {
-        
+
     }
 
     protected virtual void ReturnDefaultSpeed()
@@ -66,7 +66,7 @@ public class Entity : MonoBehaviour
     }
 
     public virtual void DamageImpact() => StartCoroutine("HitKnockback");
- 
+
     public virtual void SetupKnockbackDir(Transform _damageDirection)
     {
         if (_damageDirection.position.x > transform.position.x)
@@ -74,7 +74,7 @@ public class Entity : MonoBehaviour
         else if (_damageDirection.position.x < transform.position.x)
             knockbackDir = 1;
 
-       
+
     }
 
     public void SetupKnockbackPower(Vector2 _knockbackpower) => knockbackPower = _knockbackpower;
@@ -85,7 +85,7 @@ public class Entity : MonoBehaviour
         float xOffset = Random.Range(knockbackOffset.x, knockbackOffset.y);
 
 
-        if(knockbackPower.x > 0 || knockbackPower.y > 0) // This line makes player immune to freeze effect when he takes hit
+        if (knockbackPower.x > 0 || knockbackPower.y > 0) // This line makes player immune to freeze effect when he takes hit
             rb.velocity = new Vector2((knockbackPower.x + xOffset) * knockbackDir, knockbackPower.y);
 
         yield return new WaitForSeconds(knockbackDuration);
@@ -134,7 +134,7 @@ public class Entity : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
 
-        if(onFlipped != null)
+        if (onFlipped != null)
             onFlipped();
     }
 
@@ -155,7 +155,7 @@ public class Entity : MonoBehaviour
     }
     #endregion
 
-    
+
 
     public virtual void Die()
     {
