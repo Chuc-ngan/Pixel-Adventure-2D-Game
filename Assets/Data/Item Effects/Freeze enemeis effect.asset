@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7694bcefddd9adb48b888ca6f15a64e9, type: 3}
   m_Name: Freeze enemeis effect
   m_EditorClassIdentifier: 
-  effectDescription: Freeze enemies when below 10% hp.
+  effectDescription: "\u0110\xF3ng b\u0103ng k\u1EBB \u0111\u1ECBch khi m\xE1u c\xF2n
+    d\u01B0\u1EDBi 10%."
   duration: 2
