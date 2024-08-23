@@ -55,7 +55,7 @@ public class Skill : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null)
+            if (hit.GetComponent<EnemyCharacter>() != null)
             {
                 float distanceToEnemy = Vector2.Distance(_checkTransform.position, hit.transform.position);
 

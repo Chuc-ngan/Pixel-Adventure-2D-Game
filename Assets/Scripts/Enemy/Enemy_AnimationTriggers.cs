@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_AnimationTriggers : MonoBehaviour
 {
-    private Enemy enemy => GetComponentInParent<Enemy>();
+    private EnemyCharacter enemy => GetComponentInParent<EnemyCharacter>();
 
     private void AnimationTrigger()
     {
         enemy.AnimationFinishTrigger();
     }
 
-    private void AttackTrigger()
+    protected virtual void AttackTrigger()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.attackCheck.position, enemy.attackCheckRadius);
 

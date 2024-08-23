@@ -23,7 +23,7 @@ public class FreezeEnemies_Effect : ItemEffect
 
         foreach (var hit in colliders)
         {
-            hit.GetComponent<Enemy>()?.FreezeTimeFor(duration);
+            hit.GetComponent<EnemyCharacter>()?.FreezeTimeFor(duration);
         }
     }
 }

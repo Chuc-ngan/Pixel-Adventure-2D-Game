@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Enemy.Boss;
 using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
-    private Enemy enemy;
+    private EnemyCharacter enemy;
     private ItemDrop myDropSystem;
     public Stat soulsDropAmount;
 
@@ -13,6 +12,7 @@ public class EnemyStats : CharacterStats
 
     [Range(0f, 1f)]
     [SerializeField] private float percantageModifier = .4f;
+    private int deathCount;
 
     protected override void Start()
     {
@@ -21,7 +21,7 @@ public class EnemyStats : CharacterStats
 
         base.Start();
 
-        enemy = GetComponent<Enemy>();
+        enemy = GetComponent<EnemyCharacter>();
         myDropSystem = GetComponent<ItemDrop>();
     }
 
@@ -66,6 +66,15 @@ public class EnemyStats : CharacterStats
     protected override void Die()
     {
         base.Die();
+
+        if (enemy as BossCharacter)
+        {
+            if (!((BossCharacter)enemy).death)
+            {
+                enemy.Die();
+                return;
+            }
+        }
 
         myDropSystem.GenerateDrop();
 

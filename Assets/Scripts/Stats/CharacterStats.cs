@@ -290,7 +290,7 @@ public class CharacterStats : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null && Vector2.Distance(transform.position, hit.transform.position) > 1)
+            if (hit.GetComponent<EnemyCharacter>() != null && Vector2.Distance(transform.position, hit.transform.position) > 1)
             {
                 float distanceToEnemy = Vector2.Distance(transform.position, hit.transform.position);
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerWallSlideState : PlayerState
@@ -11,6 +9,7 @@ public class PlayerWallSlideState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.Jumpcount = 0;
     }
 
     public override void Exit()
@@ -26,22 +25,22 @@ public class PlayerWallSlideState : PlayerState
             stateMachine.ChangeState(player.airState);
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            stateMachine.ChangeState(player.wallJump);
-            return;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    stateMachine.ChangeState(player.wallJump);
+        //    return;
+        //}
 
         if (xInput != 0 && player.facingDir != xInput)
-                stateMachine.ChangeState(player.idleState);
+            stateMachine.ChangeState(player.idleState);
 
         if (yInput < 0)
             rb.velocity = new Vector2(0, rb.velocity.y);
         else
             rb.velocity = new Vector2(0, rb.velocity.y * .7f);
 
-        if(player.IsGroundDetected())
-                stateMachine.ChangeState(player.idleState);
+        if (player.IsGroundDetected())
+            stateMachine.ChangeState(player.idleState);
 
     }
 

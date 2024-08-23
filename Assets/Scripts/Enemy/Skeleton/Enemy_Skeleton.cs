@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class Enemy_Skeleton : Enemy
+public class Enemy_Skeleton : EnemyCharacter
 {
 
     #region States

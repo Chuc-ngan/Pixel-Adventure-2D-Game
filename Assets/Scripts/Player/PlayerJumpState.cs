@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJumpState : PlayerState
@@ -26,5 +24,9 @@ public class PlayerJumpState : PlayerState
 
         if (rb.velocity.y < 0)
             stateMachine.ChangeState(player.airState);
+        else if (player.IsWallDetected() && rb.velocity.y < .8f * player.jumpForce)
+            stateMachine.ChangeState(player.wallSlide);
+
+        player.SetVelocity(player.moveSpeed * .8f * xInput, rb.velocity.y);
     }
 }

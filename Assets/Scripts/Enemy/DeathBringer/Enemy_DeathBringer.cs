@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy_DeathBringer : Enemy
+public class Enemy_DeathBringer : EnemyCharacter
 {
     #region States
     public DeathBringerBattleState battleState { get ; private set; }
