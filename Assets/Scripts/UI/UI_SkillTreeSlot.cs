@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,7 +52,7 @@ public class UI_SkillTreeSlot : MonoBehaviour , IPointerEnterHandler , IPointerE
         {
             if (shouldBeUnlocked[i].unlocked == false)
             {
-                Debug.Log("Cannot unlock skill");
+                Debug.Log("Không thể mở khóa kỹ năng");
                 return;
             }
         }
@@ -62,7 +62,7 @@ public class UI_SkillTreeSlot : MonoBehaviour , IPointerEnterHandler , IPointerE
         {
             if (shouldBeLocked[i].unlocked == true)
             {
-                Debug.Log("Cannot unlock skill");
+                Debug.Log("Không thể mở khóa kỹ năng");
                 return;
             }
         }
